@@ -5,7 +5,9 @@ import 'package:finance_app5/widgets/item_widget.dart';
 import 'package:finance_app5/model/expense_item.dart';
 import 'package:finance_app5/model/income_item.dart';
 import 'package:finance_app5/pages/add_page.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 EPageOnSelect page = EPageOnSelect.homePage;
@@ -135,41 +137,64 @@ class _HomePageState extends State<HomePage> {
                                                     Color(0xFF9880f5),
                                                     Color(0xFF647ff6)
                                                   ])),
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
                                             children: [
-                                              const Padding(
-                                                padding:
-                                                    EdgeInsets.only(bottom: 12),
-                                                child: Text(
-                                                  'Hello!',
-                                                  textAlign: TextAlign.center,
-                                                  style: TextStyle(
-                                                      fontSize: 32,
-                                                      fontFamily: 'SF Pro Text',
-                                                      fontWeight:
-                                                          FontWeight.w400),
+                                              Expanded(
+                                                child: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    const Padding(
+                                                      padding: EdgeInsets.only(
+                                                          bottom: 12),
+                                                      child: Text(
+                                                        'Hello!',
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        style: TextStyle(
+                                                            fontSize: 32,
+                                                            fontFamily:
+                                                                'SF Pro Text',
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w400),
+                                                      ),
+                                                    ),
+                                                    const Row(
+                                                      children: [
+                                                        Flexible(
+                                                          child: Text(
+                                                            'Your amount of income',
+                                                            textAlign:
+                                                                TextAlign.start,
+                                                            style: TextStyle(
+                                                                fontSize: 16,
+                                                                fontFamily:
+                                                                    'SF Pro Text',
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w400),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    Text(
+                                                      '${getIncomesCost()}\$',
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: const TextStyle(
+                                                          fontSize: 20,
+                                                          fontFamily:
+                                                              'SF Pro Text',
+                                                          fontWeight:
+                                                              FontWeight.w400),
+                                                    ),
+                                                  ],
                                                 ),
                                               ),
-                                              const Text(
-                                                'Your amount of income',
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                    fontSize: 16,
-                                                    fontFamily: 'SF Pro Text',
-                                                    fontWeight:
-                                                        FontWeight.w400),
-                                              ),
-                                              Text(
-                                                '${getIncomesCost()}\$',
-                                                textAlign: TextAlign.center,
-                                                style: const TextStyle(
-                                                    fontSize: 20,
-                                                    fontFamily: 'SF Pro Text',
-                                                    fontWeight:
-                                                        FontWeight.w400),
-                                              ),
+                                              Image.asset('assets/hand.png')
                                             ],
                                           ),
                                         ),
@@ -268,38 +293,60 @@ class _HomePageState extends State<HomePage> {
                                                 Color(0xFF9880f5),
                                                 Color(0xFF647ff6)
                                               ])),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
-                                          const Padding(
-                                            padding:
-                                                EdgeInsets.only(bottom: 12),
-                                            child: Text(
-                                              'Hello!',
-                                              textAlign: TextAlign.center,
-                                              style: TextStyle(
-                                                  fontSize: 32,
-                                                  fontFamily: 'SF Pro Text',
-                                                  fontWeight: FontWeight.w400),
+                                          Expanded(
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                const Padding(
+                                                  padding: EdgeInsets.only(
+                                                      bottom: 12),
+                                                  child: Text(
+                                                    'Hello!',
+                                                    textAlign: TextAlign.center,
+                                                    style: TextStyle(
+                                                        fontSize: 32,
+                                                        fontFamily:
+                                                            'SF Pro Text',
+                                                        fontWeight:
+                                                            FontWeight.w400),
+                                                  ),
+                                                ),
+                                                const Row(
+                                                  children: [
+                                                    Flexible(
+                                                      child: Text(
+                                                        'Your amount of expense',
+                                                        textAlign:
+                                                            TextAlign.start,
+                                                        style: TextStyle(
+                                                            fontSize: 16,
+                                                            fontFamily:
+                                                                'SF Pro Text',
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w400),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Text(
+                                                  '-${getExpensesCost()}\$',
+                                                  textAlign: TextAlign.center,
+                                                  style: const TextStyle(
+                                                      fontSize: 20,
+                                                      fontFamily: 'SF Pro Text',
+                                                      fontWeight:
+                                                          FontWeight.w400),
+                                                ),
+                                              ],
                                             ),
                                           ),
-                                          const Text(
-                                            'Your amount of expense',
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                                fontSize: 16,
-                                                fontFamily: 'SF Pro Text',
-                                                fontWeight: FontWeight.w400),
-                                          ),
-                                          Text(
-                                            '-${getExpensesCost()}\$',
-                                            textAlign: TextAlign.center,
-                                            style: const TextStyle(
-                                                fontSize: 20,
-                                                fontFamily: 'SF Pro Text',
-                                                fontWeight: FontWeight.w400),
-                                          ),
+                                          Image.asset('assets/hand.png')
                                         ],
                                       ),
                                     ),
